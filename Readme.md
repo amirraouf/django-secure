@@ -1,4 +1,4 @@
-##Django Sample app
+## Django Sample app
 This project is sample yet concerning more about code cleaning, securing vulnerabilities for simple entry points
 
 There're two apps one is not secure, the other is solving it in secure and non secure way
