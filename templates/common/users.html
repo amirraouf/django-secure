@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<ul>
+    {% for user in users %}
+        <li>
+            username: {{ user.username }}
+            <br>
+            password: {{ user.password }}
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

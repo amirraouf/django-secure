@@ -1,0 +1,30 @@
+{% extends 'common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h3>Create a user</h3>
+<p>Don't care about password input or confirm password</p>
+<p>This care about saving plain password at database</p>
+<form method="post" action="{% url 'insecure_user_creation' %}">
+{% csrf_token %}
+
+<div>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</div>
+<div>
+  <td>{{ form.email.label_tag }}</td>
+  <td>{{ form.email }}</td>
+</div>
+
+<div>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</div>
+
+<div>
+  <input type="submit" value="Create" />
+</div>
+</form>
+{% endblock %}
