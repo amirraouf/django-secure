@@ -44,10 +44,8 @@ class InSecureFileUploadView(LoginRequiredMixin, CreateView):
 
 
 class InSecureFileView(LoginRequiredMixin, DetailView):
-    slug_field = 'pk'
     model = FileMedia
-    template_name = 'common/filemedia_detail.html'
-
+    template_name = 'common/secure_filemedia_detail.html'
 
 
 @login_required

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 from insecure_app.utils import user_directory_path, pkgen
@@ -19,8 +20,10 @@ class FileMedia(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        from django.urls import reverse
         return reverse('insecure_file_view', args=[str(self.id)])
+
+    def secure_get_absolute_url(self):
+        return reverse('secure_file_view', args=[str(self.ref)])
 
     def filename(self):
         return "{}_{}".format(self.name, self.upload.name)

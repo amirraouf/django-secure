@@ -37,11 +37,15 @@ class SecureFileUploadView(LoginRequiredMixin, CreateView):
     template_name = 'common/file_upload.html'
     form_class = SecureUploadForm
 
+    def get_success_url(self):
+        return self.object.secure_get_absolute_url()
+
 
 class SecureFileView(LoginRequiredMixin, DetailView):
+    slug_url_kwarg = 'ref'
     slug_field = 'ref'
     model = FileMedia
-    template_name = 'common/filemedia_detail.html'
+    template_name = 'common/secure_filemedia_detail.html'
 
 
 @login_required

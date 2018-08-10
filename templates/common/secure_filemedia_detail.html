@@ -1,0 +1,7 @@
+{% extends 'common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+{{ object.upload }}<br><a href="{% url 'secure_file_view' object.ref %}">Download</a>
+{% endblock %}
