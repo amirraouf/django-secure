@@ -9,7 +9,7 @@ There're two apps one is not secure, the other is solving it in secure and non s
  3. Media Access vulnerability (OTG-CLIENT-012)
  4. Url Phishing Detection & Mitigation
  
- As I'm using django as the framework, we shouldn't care about many security aspects but who are working on django as long as caring about security, they should care about accessability leaving us to do our homework
+ As I'm using django as the framework, we shouldn't care about many security aspects but who are working on django as long as caring about security, they should care about accessability, scalability and leaving us to do our homework and ivest time in the task not the technology itself.
  
  I'll show how django care about something like SQL Injection or password hashing but doesn't care about easy access to download media files (Documents, photos, .. etc)
  
