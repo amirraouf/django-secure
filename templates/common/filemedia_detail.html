@@ -3,5 +3,5 @@
 {% load static %}
 
 {% block content %}
-{{ object.upload }}
+{{ object.upload }}<br><a href="{% url 'insecure_file_view' object.pk %}">Download</a>
 {% endblock %}

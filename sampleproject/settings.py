@@ -8,6 +8,8 @@ We can use django-cookiecutter for starting new project in its best practice
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.urls import reverse_lazy
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
     # 3rd party apps
     'rest_framework',
     'rest_framework.authtoken',
+    'django_extensions',
 
     # Internal Apps
     'secure_app',
@@ -132,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 # BuiltIn auth system settings
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'accounts/login/'
+LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGIN_URL = reverse_lazy('login')
 
 

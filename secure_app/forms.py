@@ -1,12 +1,10 @@
 # python modules
 import os
 import tempfile
-import datetime
 
 # django modules
 from django.core.validators import FileExtensionValidator
 from django import forms
-from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
 # sampleproject modules

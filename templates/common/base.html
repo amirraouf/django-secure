@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <title>{% block title %}Secure app{% endblock %}</title>
 </head>
-<body>
+<h3>Django security sample app</h3>
+<ul>
+    <li><a href="{% url 'insecure_file_upload' %}">Insecure Upload file</a></li>
+    <li><a href="{% url 'secure_file_upload' %}">Upload file</a></li>
+    <li><a href="{% url 'insecure_user_creation' %}">Insecure User Creation</a></li>
+    <li><a href="{% url 'secure_user_creation' %}">Secure User Creation</a></li>
+</ul>
 {% block content %}{% endblock %}
 </body>
 </html>

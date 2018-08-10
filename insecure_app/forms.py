@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import FileExtensionValidator
+from django.utils.translation import ugettext_lazy as _
 
 from insecure_app.models import FileMedia
 

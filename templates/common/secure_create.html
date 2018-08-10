@@ -1,0 +1,16 @@
+{% extends 'common/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <h3>Create a user</h3>
+    <p>This care about saving password hashed at database</p>
+    <form method="post" action="{% url 'secure_user_creation' %}">
+        {% csrf_token %}
+
+        {{ form.as_ul }}
+        <div>
+            <input type="submit" value="Create" />
+        </div>
+    </form>
+{% endblock %}

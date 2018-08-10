@@ -43,7 +43,7 @@ class InSecureFileUploadView(LoginRequiredMixin, CreateView):
     form_class = UploadForm
 
 
-class InSecureFileDownloadView(LoginRequiredMixin, DetailView):
+class InSecureFileView(LoginRequiredMixin, DetailView):
     slug_field = 'pk'
     model = FileMedia
     template_name = 'common/filemedia_detail.html'
@@ -55,7 +55,7 @@ def insecure_doc_download(request, pk):
     """
     Function Based View
     Downloads Media file that user had uploaded before.
-    I
+    It is insecure as if you saved the file url you can download it and you're not logged in
     :param request: HttpRequest that handles user details.
     :param doc_id: Document's id to be fetched.
     :return: Downloadable excel or 404.
@@ -63,8 +63,8 @@ def insecure_doc_download(request, pk):
     try:
         document = FileMedia.objects.get(id=pk)
 
-        response = HttpResponse(document.file, content_type='application/vnd.ms-excel')
-        response['Content-Disposition'] = 'attachment; filename=%s' % document.filename()
+        response = HttpResponse(document.upload, content_type='application/vnd.ms-excel')
+        response['Content-Disposition'] = 'attachment; filename={}'.format(document.filename())
         response['X-Accel-Redirect'] = '/media/' + document.upload.name
 
         return response
@@ -72,3 +72,8 @@ def insecure_doc_download(request, pk):
         raise Http404
 
 
+class CommonHomeView(LoginRequiredMixin, TemplateView):
+    """
+    Home view to index the navigations, just a template work
+    """
+    template_name = 'common/base.html'

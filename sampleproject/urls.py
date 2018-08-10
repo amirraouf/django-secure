@@ -18,21 +18,22 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 
-
+from insecure_app.views import CommonHomeView
+from secure_app.views import protected_serve
 
 if settings.DEBUG:
     admin_url = path('admin/', admin.site.urls)
-    media_url = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 else:
-    media_url = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, view=protected_serve)
-
     admin_url = path('unpredictable_portal_path/', admin.site.urls)
+
+sec_media_url = static('secure' + settings.MEDIA_URL, document_root=settings.MEDIA_ROOT, view=protected_serve)
+media_url = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('secure/', include('secure_app.urls')),
     path('insecure/', include('insecure_app.urls')),
-
+    path('', CommonHomeView.as_view(), name='home'),
     admin_url,
-]
+] + media_url + sec_media_url

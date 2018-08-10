@@ -21,3 +21,6 @@ class FileMedia(models.Model):
     def get_absolute_url(self):
         from django.urls import reverse
         return reverse('insecure_file_view', args=[str(self.id)])
+
+    def filename(self):
+        return "{}_{}".format(self.name, self.upload.name)
