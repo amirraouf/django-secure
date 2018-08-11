@@ -1,3 +1,4 @@
+from django.urls import include
 from django.urls import path
 
 from insecure_app.views import (
@@ -14,5 +15,6 @@ urlpatterns = [
     path('upload/', InSecureFileUploadView.as_view(), name='insecure_file_upload'),
     path('view/<int:pk>/', InSecureFileView.as_view(), name='insecure_file_view'),
     path('download/<int:pk>/', insecure_doc_download, name='insecure_file_download'),
+    path('api/', include('secure_app.api.urls'))
 
 ]

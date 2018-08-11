@@ -42,6 +42,10 @@ class SecureFileUploadView(LoginRequiredMixin, CreateView):
 
 
 class SecureFileView(LoginRequiredMixin, DetailView):
+    """
+    url detecting is solved as the user can't detect the url slug kwargs
+    user can detect /view/1/ and /view/2/ but /view/<randomsting> hard to be detected
+    """
     slug_url_kwarg = 'ref'
     slug_field = 'ref'
     model = FileMedia
