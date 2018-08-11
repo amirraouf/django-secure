@@ -1,0 +1,14 @@
+version: "3"
+services:
+  django:
+    container_name: django_secure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker_django_secure
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/var/www/myproject
+    ports:
+      - "8000:8000"

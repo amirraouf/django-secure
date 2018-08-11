@@ -24,3 +24,5 @@ There're two apps one is not secure, the other is solving it in secure and non s
 Each have Secret key and dependencies related to it with base setting file to inherit from
 
 You can use django-cookiecutter for starting new project in its best practice and cut off some time
+
+run `docker-compose build` and `docker-compose up`
