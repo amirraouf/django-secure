@@ -26,3 +26,5 @@ Each have Secret key and dependencies related to it with base setting file to in
 You can use django-cookiecutter for starting new project in its best practice and cut off some time
 
 run `docker-compose build` and `docker-compose up`
+
+If you have another scenarios don't hesitate to contribute at it. Thanks
