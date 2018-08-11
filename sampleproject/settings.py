@@ -8,6 +8,8 @@ We can use django-cookiecutter for starting new project in its best practice
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from datetime import timedelta
+
 from django.urls import reverse_lazy
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -138,4 +140,5 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGIN_URL = reverse_lazy('login')
 
-
+# Authentication API
+EXPIRING_TOKEN_LIFESPAN = timedelta(minutes=15)

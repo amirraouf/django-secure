@@ -84,6 +84,7 @@ def protected_serve(request, path, document_root=None, show_indexes=False):
     however you're not logged in, that's why django static serve view
     is not secured by authenticated users only.
     Try /secure/media/2018/loremipsum.ext
+    ref: https://docs.djangoproject.com/en/2.1/howto/static-files/#serving-static-files-during-development
     :param request: request of user
     :param path: path of the document
     :param document_root: media root directory
